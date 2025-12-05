@@ -19,3 +19,10 @@ fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteA
  * The cleaner shorthand for printing output.
  */
 fun Any?.println() = println(this)
+
+
+data class Segment(var start: Long, var end: Long) {
+    fun contains(value: Long): Boolean = value in start..end
+
+    fun length(): Long = end - start + 1
+}
